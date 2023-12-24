@@ -40,6 +40,8 @@ The models were trained using 7 datasets with a total of 260 images. Here's an o
 
 ***NR - Not reported by the original authors***
 
+![](figures/map.png)
+
 ## 2. AI Techniques
 
 The following AI techniques are available:
