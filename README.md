@@ -15,17 +15,15 @@ This GitHub repository provides tools and resources developed during a 2-year po
 ## Table of Contents 
 
 1. [**Data**](#data)
-2. [**AI Techniques**](#2-ai-techniques)
-3. [**Python Structure**](#3-python-structure)
-4. [**Interface**](#4-interface)
-5. [**Bash Script**](#5-bash-script)
-6. [**Docker File**](#6-docker-file)
-7. [**Singularity File**](#7-singularity-file)
-8. [**Transfer-Learning**](#8-transfer-learning)
+2. [**AI Techniques**](#ai-techniques)
+3. [**Python Structure**](#python-structure)
+4. [**Interface**](#interface)
+5. [**Bash Script**](#bash-script)
+6. [**Docker File**](#docker-file)
+7. [**Singularity File**](#singularity-file)
+8. [**Transfer-Learning**](#transfer-learning)
 
 # Data 
-
-# Titles
 
 The models were trained using 7 datasets with a total of 260 images. Here's an overview of the datasets:
 
@@ -58,7 +56,7 @@ The models were trained using 7 datasets with a total of 260 images. Here's an o
 
 ![](figures/map.png)
 
-## 2. AI Techniques
+# AI Techniques
 
 The following AI techniques are available:
 
@@ -98,7 +96,7 @@ The following AI techniques are available:
     - [ResNet 152](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf): Residual Network with 152 layers, utilizing residual connections to facilitate learning of complex features.
     - [EfficientNet B0](https://proceedings.mlr.press/v97/tan19a/tan19a.pdf): A family of models with an emphasis on balancing model efficiency and accuracy. B0 represents the baseline model.
 
-## 3. Python Structure
+# Python Structure
 
 - **Folder: models:** Contains trained models, organized by AI technique, architecture, and orientation.
 - **File: main.py:** Stores the architecture.
@@ -106,7 +104,7 @@ The following AI techniques are available:
 - **File: margarida_wmh.sh:** Bash script command.
 - **File: margarida_wmh.sif:** Singularity file.
 
-## 4. Interface
+# Interface
 
 The Margarida WMH Segmentation Toolbox features a user-friendly graphical interface, developed using customtkinter in Python. This interface, named the Margarida WMH Segmentation Toolbox, serves as a powerful tool for users to effortlessly run and evaluate the pre-trained models. The interface provides an intuitive and interactive platform, allowing users to select and execute any of the available AI techniques seamlessly.
 
@@ -140,14 +138,14 @@ The Margarida WMH Segmentation Toolbox features a user-friendly graphical interf
 
 This interface empowers researchers and practitioners in the medical imaging domain, providing a seamless experience for utilizing state-of-the-art AI models in the segmentation of White Matter Hyperintensities.
 
-## 5. Bash Script
+# Bash Script
 
 Using the same instructions to install Python from the previous section, users can run the following command for segmentation:
 
 ```bash
 margarida_wmh -in folder_input -out folder_output -model unet -architecture vgg16 -orientation 2DAxi
 ```
-## 6. Docker File
+# Docker File
 
 To run the Docker file "margarida_wmh" with GPU support, use the following commands:
 
@@ -156,7 +154,7 @@ docker build -t margarida_wmh .
 docker run --gpus all -v /path/to/data:/data margarida_wmh
 ```
 
-## 7. Singularity File
+# Singularity File
 
 The Singularity file "margarida_wmh" also requires GPU support. You can either use the provided Singularity file or convert the Docker file to Singularity using the provided conversion script.
 
@@ -174,7 +172,7 @@ singularity build margarida_wmh.sif docker://margarida_wmh
 ```
 Note: Make sure to replace "/path/to/data" with the actual path to your data when running the Docker or Singularity commands.
 
-## 8. Transfer-Learning
+# Transfer-Learning
 Make sure you have the following installed in your Python environment:
 
 - TensorFlow
