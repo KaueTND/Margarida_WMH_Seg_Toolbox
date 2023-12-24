@@ -13,19 +13,32 @@ This GitHub repository provides tools and resources developed during a 2-year po
 
 The models were trained using 7 datasets with a total of 260 images. Here's an overview of the datasets:
 
-- Dataset 1: [Description]
-- Dataset 2: [Description]
-- ...
-- Dataset 7: [Description]
+- **Dataset 1: Calgary Normative Study (CNS)**
+  - CNS is an ongoing longitudinal MR study focused on quantitative imaging and analysis techniques in aging. The CNS includes images from cognitively intact (CI) individuals residing in the community that were acquired on a 3 T Discovery MR750 ( General Electric (GE) Healthcare, Waukesha, WI).
+- **Dataset 2: Functional Assessment of Vascular Reactivity I (FAVR I)**
+  -  FAVR I is a single-center observational investigation exploring the correlation between cerebral blood flow and cognitive status in individuals with cognitive intactness (CI), mild cognitive impairment (MCI), and Alzheimer's disease (AD). The data was acquired from a 3 T Discovery MR750 ( General Electric (GE) Healthcare, Waukesha, WI) scanner.
+- **Dataset 3: Functional Assessment of Vascular Reactivity II (FAVR II)**
+  - FAVR II is an extension of FAVR-I, is an ongoing study conducted at two centers in Calgary and Edmonton (AB,Canada). This dataset includes images from an additional scanner: 3 T Siemens Prisma; Siemens Healthineers, Erlangen, Germany).
+- **Dataset 4: Amsterdam**
+  - This dataset is part of the White Matter Hyperintensities Segmentation Challenge, comprises images acquired on a 3 T GE Signa HDxt scanner.
+- **Dataset 5: Utrecht**
+  - Utrecht dataset comes from a contribution of the White Matter Hyperintensities Segmentation Challenge, including data obtained on a 3 T Philips Achieva (Philips Healthcare, Eindhoven, the Netherlands) scanner.
+- **Dataset 6: Singapore**
+  - The Singapore dataset is part of the White Matter Hyperintensities Segmentation Challenge, consisting of images acquired on 3 T Siemens Trio Tim scanner.
+- **Dataset 7: Alzheimer’s Disease Neuroimaging Initiative (ADNI)**
+  - ADNI is a longitudinal multicenter study strategically crafted to establish clinical, imaging, genetic, and biochemical biomarkers for the early detection and monitoring of Alzheimer’s disease (AD). With over a decade of existence, this pioneering public-private partnership has significantly advanced AD research, facilitating global data sharing among researchers. **This dataset was only included in the Bronze training of the Progressive Learning approach**.
 
-Table:
+| Dataset     | Gender (Male %)  | Age (Mean x Std) | Stage Group - Total (CI-MCI-AD)|
+|-------------|----------------------|------------------|--------------------------------|
+| [CNS](https://pubmed.ncbi.nlm.nih.gov/32792445/)       | 50    | 43.7 x 17.3  | 20 (20-0-0)  |
+| [FAVR I](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3812103/)    | 55    | 69.7 x 8.3   | 71 (24-29-18)|
+| [FAVR II](https://pubmed.ncbi.nlm.nih.gov/33998545/)   | 52.1  | 70.7 x 8.3   | 95 (50-26-19)|
+| [Amsterdam](https://pubmed.ncbi.nlm.nih.gov/30908194/) | NR    | NR           | 20 (NR)      |
+| [Utrecht](https://pubmed.ncbi.nlm.nih.gov/30908194/)   | NR    | NR           | 20 (NR)      |
+| [Singapore](https://pubmed.ncbi.nlm.nih.gov/30908194/) | NR    | NR           | 20 (NR)      |
+| [ADNI](https://adni.loni.usc.edu/)      | 58.3  | 74.4 x 6.9   | 364 (150-191-23)|
 
-| Dataset | Size | Source | Year |
-|---------|------|--------|------|
-| 1       | ...  | ...    | ...  |
-| 2       | ...  | ...    | ...  |
-| ...     | ...  | ...    | ...  |
-| 7       | ...  | ...    | ...  |
+***NR - Not reported by the original authors***
 
 ## 2. AI Techniques
 
@@ -33,37 +46,27 @@ The following AI techniques are available:
 
 - **Traditional U-Net**
   - The Traditional U-Net is a convolutional neural network architecture widely used for image segmentation tasks. It consists of a contracting path to capture context and a symmetric expanding path for precise localization. This architecture is known for its simplicity and effectiveness in various medical imaging applications.
-  - ![Traditional U-Net](url_to_image)
-
 - **Attention U-Net**
   - The Attention U-Net incorporates attention mechanisms to enhance the model's focus on relevant image regions during segmentation. It utilizes skip connections with attention gates, allowing the network to selectively attend to important features, improving the accuracy of segmentation, especially in areas with subtle details.
-  - ![Traditional U-Net](url_to_image)
-
 - **U-Net ++**
   - U-Net ++ is an extension of the U-Net architecture designed to capture multi-scale contextual information effectively. It includes additional convolutional blocks in the contracting and expanding paths, promoting the extraction of hierarchical features. This modification enhances the model's ability to segment structures at different scales.
-  - ![Traditional U-Net](url_to_image)
-
 - **U-Net 3+**
   - U-Net 3+ builds upon the traditional U-Net by introducing residual connections in both the contracting and expanding paths. These connections facilitate the flow of information across layers, allowing the model to learn more complex representations and improve segmentation accuracy, particularly in challenging image regions.
-  - ![Traditional U-Net](url_to_image)
-
 - **LinkNet**
   - LinkNet is a segmentation architecture that employs an encoder-decoder structure with skip connections. It utilizes residual blocks in the encoder to extract hierarchical features efficiently. The skip connections aid in preserving spatial details during the upsampling process, contributing to precise segmentation results.
-  - ![Traditional U-Net](url_to_image)
-
 - **FPN (Feature Pyramid Network)**
   - Feature Pyramid Network (FPN) is a multi-scale feature extraction architecture. It incorporates a top-down pathway and lateral connections to build a feature pyramid, enabling the model to capture semantic information at different scales. FPN is effective for segmenting structures with varying sizes.
-  - ![Traditional U-Net](url_to_image)
-
 - **Progressive Learning**
   - Progressive Learning is a strategy where the model is trained incrementally on different datasets or with varying levels of difficulty. This technique helps the model adapt to diverse data distributions and improve segmentation performance over time, making it robust in real-world applications.
-  - ![Traditional U-Net](url_to_image)
-
 - **Transformers**
   - Transformers, popularized by their success in natural language processing, have been adapted for image segmentation tasks. Self-attention mechanisms allow the model to capture long-range dependencies in the input data effectively. Transformers excel in handling global context information, making them suitable for complex segmentation tasks.
-  - ![Traditional U-Net](url_to_image)
 
-All models were trained in 2D axial, 2D coronal, and 2D sagittal orientations, and a 2.5D version combining all three directions. Architectures used include VGG16, VGG19, ResNet 152, and EfficientNetB0.
+|  |  |  |  |
+|--|--|--|--|
+|![](figures/unet.PNG)|![](figures/attunet.PNG)|![](figures/unet2p.PNG)|![](figures/unet3p.PNG)|
+|![](figures/linknet.PNG)|![](figures/fpn.PNG)|![](figures/prlearning.PNG)|![](figures/transformers.PNG)|
+
+  All models were trained in 2D axial, 2D coronal, and 2D sagittal orientations, and a 2.5D version combining all three directions. Architectures used include VGG16, VGG19, ResNet 152, and EfficientNetB0.
 
 - **2.5D Version**  
   - The 2.5D version combines information from 2D axial, 2D coronal, and 2D sagittal orientations. This fusion of orthogonal directions enhances the model's ability to capture comprehensive spatial information, resulting in improved segmentation accuracy.
