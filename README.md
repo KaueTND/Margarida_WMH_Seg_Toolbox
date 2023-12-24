@@ -14,7 +14,7 @@ This GitHub repository provides tools and resources developed during a 2-year po
 
 ## Table of Contents 
 
-1. [**Data**](1-data)
+1. [**Data**](Data)
 2. [**AI Techniques**](#2-ai-techniques)
 3. [**Python Structure**](#3-python-structure)
 4. [**Interface**](#4-interface)
@@ -23,7 +23,7 @@ This GitHub repository provides tools and resources developed during a 2-year po
 7. [**Singularity File**](#7-singularity-file)
 8. [**Transfer-Learning**](#8-transfer-learning)
 
-## 1. Data <a name="1-data"></a>
+# Data 
 
 # Titles
 
