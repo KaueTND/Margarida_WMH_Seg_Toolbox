@@ -1,7 +1,7 @@
 # Margarida WMH Segmentation Toolbox
 
 ## Purpose
-
+[Titles](#titles)
 This GitHub repository provides tools and resources developed during a 2-year postdoc focused on segmenting White Matter Hyperintensities (WMH) using AI techniques. The toolbox includes:
 
 1. **Interface GUI:** Users can download and utilize pre-trained models through a graphical user interface.
@@ -9,6 +9,7 @@ This GitHub repository provides tools and resources developed during a 2-year po
 3. **Docker File:** Allows users to download and use the toolbox in a Docker environment.
 4. **Singularity:** For users without Docker access, provides an alternative method using Singularity.
 
+[Go to Real Cool Heading section](#-real-cool-heading)
 
 
 ## Table of Contents 
@@ -23,6 +24,8 @@ This GitHub repository provides tools and resources developed during a 2-year po
 8. [**Transfer-Learning**](#8-transfer-learning)
 
 ## 1. Data <a name="1-data"></a>
+
+# Titles
 
 The models were trained using 7 datasets with a total of 260 images. Here's an overview of the datasets:
 
@@ -75,6 +78,8 @@ The following AI techniques are available:
   - Progressive Learning is a strategy where the model is trained incrementally on different datasets or with varying levels of difficulty. This technique helps the model adapt to diverse data distributions and improve segmentation performance over time, making it robust in real-world applications.
 - **Transformers**
   - Transformers, popularized by their success in natural language processing, have been adapted for image segmentation tasks. Self-attention mechanisms allow the model to capture long-range dependencies in the input data effectively. Transformers excel in handling global context information, making them suitable for complex segmentation tasks.
+
+# Real Cool Heading
 
 |  |  |  |  |
 |--|--|--|--|
