@@ -9,7 +9,20 @@ This GitHub repository provides tools and resources developed during a 2-year po
 3. **Docker File:** Allows users to download and use the toolbox in a Docker environment.
 4. **Singularity:** For users without Docker access, provides an alternative method using Singularity.
 
-## 1. Data
+
+
+## Table of Contents 
+
+1. [**Data**](1-data)
+2. [**AI Techniques**](#2-ai-techniques)
+3. [**Python Structure**](#3-python-structure)
+4. [**Interface**](#4-interface)
+5. [**Bash Script**](#5-bash-script)
+6. [**Docker File**](#6-docker-file)
+7. [**Singularity File**](#7-singularity-file)
+8. [**Transfer-Learning**](#8-transfer-learning)
+
+## 1. Data <a name="1-data"></a>
 
 The models were trained using 7 datasets with a total of 260 images. Here's an overview of the datasets:
 
@@ -75,24 +88,10 @@ The following AI techniques are available:
 
 - **Architectures**
   - The models were trained using various architectures, including:
-    - VGG16: A deep convolutional network known for its simplicity and effectiveness.
-    - VGG19: An extended version of VGG16 with additional layers, offering increased representational capacity.
-    - ResNet 152: Residual Network with 152 layers, utilizing residual connections to facilitate learning of complex features.
-    - EfficientNet B0: A family of models with an emphasis on balancing model efficiency and accuracy. B0 represents the baseline model.
-
-Table:
-
-| Technique            | Paper Link                                          | Package Link                             | Year of Postdoc |
-|----------------------|------------------------------------------------------|------------------------------------------|------------------|
-| Traditional U-Net    | [Paper](Link_to_Paper)                               | [Package](Link_to_Package)               | Year             |
-| Attention U-Net      | [Paper](Link_to_Paper)                               | [Package](Link_to_Package)               | Year             |
-| U-Net ++             | [Paper](Link_to_Paper)                               | [Package](Link_to_Package)               | Year             |
-| U-Net 3+             | [Paper](Link_to_Paper)                               | [Package](Link_to_Package)               | Year             |
-| LinkNet              | [Paper](Link_to_Paper)                               | [Package](Link_to_Package)               | Year             |
-| FPN                  | [Paper](Link_to_Paper)                               | [Package](Link_to_Package)               | Year             |
-| Progressive Learning | [Paper](Link_to_Paper)                               | [Package](Link_to_Package)               | Year             |
-| Transformers         | [Paper](Link_to_Paper)                               | [Package](Link_to_Package)               | Year             |
-
+    - [VGG16](https://ora.ox.ac.uk/objects/uuid:60713f18-a6d1-4d97-8f45-b60ad8aebbce): A deep convolutional network known for its simplicity and effectiveness.
+    - [VGG19](https://ora.ox.ac.uk/objects/uuid:60713f18-a6d1-4d97-8f45-b60ad8aebbce): An extended version of VGG16 with additional layers, offering increased representational capacity.
+    - [ResNet 152](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf): Residual Network with 152 layers, utilizing residual connections to facilitate learning of complex features.
+    - [EfficientNet B0](https://proceedings.mlr.press/v97/tan19a/tan19a.pdf): A family of models with an emphasis on balancing model efficiency and accuracy. B0 represents the baseline model.
 
 ## 3. Python Structure
 
@@ -168,5 +167,65 @@ Assuming you have Singularity installed, run the following command:
 ```bash
 singularity build margarida_wmh.sif docker://margarida_wmh
 ```
-
 Note: Make sure to replace "/path/to/data" with the actual path to your data when running the Docker or Singularity commands.
+
+## 8. Transfer-Learning
+Make sure you have the following installed in your Python environment:
+
+- TensorFlow
+- Keras
+- segmentation_models_3D
+- Other dependencies (specify if any)
+
+### Loading the Model
+
+Our models are available inside the **models** folder. Please be aware that there is a certain structure that has to be followed.
+
+To load the pre-trained model, you can use the `load_model` function from Keras:
+
+```python
+import tensorflow as tf
+import segmentation_models_3D as sm
+
+# Specify your checkpoint path
+checkpoint_path = "models/technique/architecture/orientation"
+
+dice_loss = sm.losses.DiceLoss(class_weights=np.array([0.5, 0.5]))
+focal_loss = sm.losses.BinaryFocalLoss()
+total_loss = (dice_loss + (1 * focal_loss))
+metrics = [sm.metrics.IOUScore(),sm.metrics.FScore()]
+
+# Load the model with custom loss and metrics
+model = tf.keras.models.load_model(
+    checkpoint_path.replace(levelP, change_standard[levelP]),
+    custom_objects={
+        'iou_score': sm.metrics.IOUScore(),
+        'f1-score': sm.metrics.FScore(),
+        'dice_loss_plus_1binary_focal_loss': (dice_loss + (1 * focal_loss))
+    }
+)
+```
+
+### Freeze specific layers if needed
+```python
+freeze_until = 4
+for layer in model.layers[:freeze_until]:
+    layer.trainable = False
+    print(layer.name, layer.trainable)
+```
+
+The implementation of the metrics IoU, F-measure, Dice, and Focal loss do not necessarily have to be implemented using Segmentation Models,
+You can have your own implementation or use them from different packages. See example below
+
+```python
+dice_loss = custom_dice_loss_function()
+focal_loss = custom_focal_loss_function()
+total_loss = (dice_loss + (1 * focal_loss))
+metrics = [custom_iou_metric(), custom_f1_metric()]
+```
+
+- **Freezing Fewer Layers (Fine-Tuning the Model):** In scenarios where the new dataset significantly differs from the data used for pre-training, it is advisable to freeze only a few layers during fine-tuning. This approach allows the model to retain its general knowledge while adapting to the specific features of the novel data. Fine-tuning fewer layers prevents overfitting to the idiosyncrasies of the original dataset, promoting better generalization to diverse data.
+
+- **Freezing More Layers (Feature Extraction):** When the new dataset closely resembles the original dataset, freezing more layers becomes beneficial. Lower layers in the neural network capture generic features applicable across various domains, and freezing them leverages this shared knowledge. By focusing on adapting only the higher layers to the unique aspects of the new data, this approach is particularly useful when the amount of new data is limited, enhancing the model's ability to generalize.
+
+- **Finding the Right Balance:** The choice of how many layers to freeze should be a result of experimentation and performance monitoring. Striking the right balance is crucial for achieving optimal results in transfer learning. It involves adjusting the number of frozen layers based on the characteristics of the datasets. Too few frozen layers may lead to poor adaptation, while too many may impede the model's ability to learn new patterns. Regularly assessing the model's performance on a validation set and iteratively adjusting the frozen layers ensures a tailored and effective transfer learning process for the specific task at hand.
