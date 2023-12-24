@@ -9,9 +9,6 @@ This GitHub repository provides tools and resources developed during a 2-year po
 3. **Docker File:** Allows users to download and use the toolbox in a Docker environment.
 4. **Singularity:** For users without Docker access, provides an alternative method using Singularity.
 
-[Go to Real Cool Heading section](#-real-cool-heading)
-
-
 ## Table of Contents 
 
 1. [**Data**](#data)
