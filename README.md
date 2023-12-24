@@ -1,7 +1,7 @@
 # Margarida WMH Segmentation Toolbox
 
 ## Purpose
-[Titles](#titles)
+
 This GitHub repository provides tools and resources developed during a 2-year postdoc focused on segmenting White Matter Hyperintensities (WMH) using AI techniques. The toolbox includes:
 
 1. **Interface GUI:** Users can download and utilize pre-trained models through a graphical user interface.
