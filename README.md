@@ -14,7 +14,7 @@ This GitHub repository provides tools and resources developed during a 2-year po
 
 ## Table of Contents 
 
-1. [**Data**](Data)
+1. [**Data**](#data)
 2. [**AI Techniques**](#2-ai-techniques)
 3. [**Python Structure**](#3-python-structure)
 4. [**Interface**](#4-interface)
