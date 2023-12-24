@@ -74,8 +74,6 @@ The following AI techniques are available:
 - **Transformers**
   - Transformers, popularized by their success in natural language processing, have been adapted for image segmentation tasks. Self-attention mechanisms allow the model to capture long-range dependencies in the input data effectively. Transformers excel in handling global context information, making them suitable for complex segmentation tasks.
 
-# Real Cool Heading
-
 |  |  |  |  |
 |--|--|--|--|
 |![](figures/unet.PNG)|![](figures/attunet.PNG)|![](figures/unet2p.PNG)|![](figures/unet3p.PNG)|
