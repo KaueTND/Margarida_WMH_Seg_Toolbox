@@ -103,6 +103,11 @@ The following AI techniques are available:
 
 The Margarida WMH Segmentation Toolbox features a user-friendly graphical interface, developed using customtkinter in Python. This interface, named the Margarida WMH Segmentation Toolbox, serves as a powerful tool for users to effortlessly run and evaluate the pre-trained models. The interface provides an intuitive and interactive platform, allowing users to select and execute any of the available AI techniques seamlessly.
 
+<video width="320" height="240" controls>
+  <source src="Software_view.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ### Features:
 
 - **Model Selection:** Users can choose from a variety of AI techniques, including Traditional U-Net, Attention U-Net, U-Net ++, U-Net 3+, LinkNet, FPN, Progressive Learning, Transformers, and the 2.5D Version.
