@@ -103,6 +103,7 @@ The following AI techniques are available:
 
 The Margarida WMH Segmentation Toolbox features a user-friendly graphical interface, developed using customtkinter in Python. This interface, named the Margarida WMH Segmentation Toolbox, serves as a powerful tool for users to effortlessly run and evaluate the pre-trained models. The interface provides an intuitive and interactive platform, allowing users to select and execute any of the available AI techniques seamlessly.
 
+## Watch below the Video for the Margarida WMH Segmentation Toolbox
 ## [![Watch the video](https://img.youtube.com/vi/YfKKHSkf0pU/0.jpg)](https://youtu.be/YfKKHSkf0pU)
 
 
