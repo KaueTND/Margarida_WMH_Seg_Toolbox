@@ -127,12 +127,13 @@ The Margarida WMH Segmentation Toolbox features a user-friendly graphical interf
    - Run the command: `pip install -r requirements.txt`
 
 3. **Run the Interface:**
+   - Enter in the folder WMH_app: `cd WMH_app`
    - Execute the interface using: `python main.py`
 
-4. **Interface Usage:**
+5. **Interface Usage:**
    - Once the interface is running, follow the on-screen instructions to select the desired AI technique, architecture, and orientation.
 
-5. **Execute Segmentation:**
+6. **Execute Segmentation:**
    - Initiate the segmentation process with the click of a button, allowing users to obtain results efficiently.
 
 This interface empowers researchers and practitioners in the medical imaging domain, providing a seamless experience for utilizing state-of-the-art AI models in the segmentation of White Matter Hyperintensities.
