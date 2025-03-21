@@ -120,7 +120,7 @@ The Margarida WMH Segmentation Toolbox features a user-friendly graphical interf
 ### Instructions for Setting Up the Environment:
 
 1. **Conda Environment:**
-   - Create a Conda environment: `conda create --name margarida_wmh_env python=3.x`
+   - Create a Conda environment: `conda create --name margarida_wmh_env python=3.8.13`
    - Activate the environment: `conda activate margarida_wmh_env`
     
 2. **Pip Installation:**
