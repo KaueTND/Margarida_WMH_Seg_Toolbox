@@ -143,7 +143,7 @@ This interface empowers researchers and practitioners in the medical imaging dom
 Using the same instructions to install Python from the previous section, users can run the following command for segmentation:
 
 ```bash
-margarida_wmh -in folder_input -out folder_output -model unet -architecture vgg16 -orientation 2DAxi
+./margarida_wmh -in folder_input -out folder_output -model unet -architecture vgg16 -orientation 2DAxi
 ```
 # Docker File
 
