@@ -41,7 +41,7 @@ class MargaridaWMHSeg:
         self.texture_var = tkinter.StringVar(value='GLCM')
         self.architecture_var = tkinter.StringVar(value='VGG16')
         self.cross_lon_var = tkinter.IntVar(value=0)
-        self.path_dir = 'C:/Users/kaueu/OneDrive/Área de Trabalho/WMH_app/'
+        self.path_dir = ''
         
         self.frames = [tkinter.PhotoImage(file='loading.gif', format='gif -index %i'%(i)) for i in range(25)]
         self.threshold_var = tkinter.DoubleVar(value=0.5)
