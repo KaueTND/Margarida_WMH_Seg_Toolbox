@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Help option
+if [[ "$1" == "--help" ]]; then
+    python models.py --help
+    exit 0
+fi
+
+# Call the Python script with all provided arguments
+python models.py "$@"
+
